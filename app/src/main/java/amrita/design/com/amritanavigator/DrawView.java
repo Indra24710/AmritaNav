@@ -186,7 +186,6 @@ int i=1;
 
                   //  canvas.drawCircle( fArr2[j+1][0], fArr2[j+1][1], 10.0f,this.paint2);
                 }
-               // canvas.drawCircle(a,b,10.0f,this.paint2);
 
                 i = i2;
 
@@ -195,8 +194,8 @@ int i=1;
               //  Log.i("elsebadd",Float.toString(b));
              //   canvas.drawCircle(a,b,10.0f,this.paint2);
                 Log.d("cood", Float.toString(a));
-
                 canvas.drawBitmap(bitmap2,a,b,this.paint2);
+
                 canvas.restore();
 
                 return;

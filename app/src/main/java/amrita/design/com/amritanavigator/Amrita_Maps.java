@@ -61,9 +61,9 @@ InputMethodManager imm;
             "Mechanical Department","Mathematics Department","Science Department","English Department","Communication Department",
             "Social Work Department","Provision Stores","Cloth Shop","Travel Desk","Mobile Recharge","Hair Dressing-Boys",
             "Beauty Parlour-Boys/Girls","Amrita Darshanam Centre","Student Welfare Department","AB-1","AB-2","AB-3",
-            "Hospital","Boys Hostel YB Annexe( 1st year)","Girls Hostel( 1st year)","Cyber Security","Center of Excellence in Networking(CEN)",
-            "Accounts","Admissions","Boys Hostel( 2nd year)","Boys Hostel( 3rd year)","Boys Hostel( 4th year)","Post Office",
-            "Bank","Boys Hostel YB( 1st year)","New Auditorium","Pandal"
+            "Hospital","Boys Hostel YB Annexe( First year)","Girls Hostel( First year)","Cyber Security","Center of Excellence in Networking(CEN)",
+            "Accounts","Admissions","Boys Hostel( Second year)","Boys Hostel( Third year)","Boys Hostel( Fourth year)","Post Office",
+            "Bank","Boys Hostel YB( First year)","New Auditorium","Pandal","Food Science Lab","CSE","MECH","ECE","EEE","CHEM"
 
     };
   //  String[] modee = new String[]{"Walk", "Cycle"};
@@ -185,6 +185,16 @@ public int addr=1;
         walk.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if((textView.getText().toString()=="")||(textView1.getText().toString()=="")){
+                    linearLayout.removeAllViews();
+                    ShortestPath sp = new ShortestPath();
+                    Log.i("ucpc",Integer.toString(u));
+                    Log.i("pc",Integer.toString(p));
+                    Log.i("commute",Integer.toString(cho));
+                    float path[] = sp.main1(8,8,0);
+                    DrawView drawView = new DrawView(Amrita_Maps.this, path);
+                    linearLayout.addView(drawView);
+                }
                 addr = maps(textView.getText().toString(), textView1.getText().toString(), 0);
                 walktext.setVisibility(View.VISIBLE);
                 cycletext.setVisibility(View.INVISIBLE);
@@ -219,24 +229,24 @@ public int addr=1;
 
 
 
-                if(textView.getText().toString().equals("Academic Block-1")){
+                if((textView.getText().toString().equals("Academic Block-1"))||(textView.getText().toString().equals("AB-1"))){
 
 
                     String times[]=new String []{"9.20 AM","9:40 AM","10.10 AM","10:30 AM","11.10 AM","11:20 AM","12.00 Noon","12:20PM","1.00 PM","1:10 PM","1.50PM","2:10 PM","2.40PM","3:00 PM","3.30PM","3:50 PM"};
                     final ArrayList<String> time=new ArrayList<String>();
-                    for(int i=0;i<8;i++){
+                    for(int i=0;i<16;i++){
                         time.add(times[i]);
                     }
                     ArrayAdapter listadapter=new ArrayAdapter<>(Amrita_Maps.this,android.R.layout.simple_list_item_1,time);
                     list.setAdapter(listadapter);
                     linearLayout.addView(list);
-                }else if(textView.getText().toString().equals("Academic Block-3")){
+                }else if((textView.getText().toString().equals("Academic Block-3"))||textView.getText().toString().equals("AB-3")){
 
 
                     String times[]=new String[] {"9.20 AM","9:40 AM","10.10 AM","10:30 AM","11.10 AM","11:20 AM","12.00 Noon","12:20PM","1.00 PM","1:10 PM","1.50PM","2:10 PM","2.40PM","3:00 PM","3.30PM","3:50 PM"};
 
                     final ArrayList<String> time=new ArrayList<String>();
-                    for(int i=0;i<8;i++){
+                    for(int i=0;i<16;i++){
                         time.add(times[i]);
                     }
                     ArrayAdapter listadapter=new ArrayAdapter<>(Amrita_Maps.this,android.R.layout.simple_list_item_1,time);
@@ -400,6 +410,13 @@ public int addr=1;
        if (Objects.equals(Amrita_Maps.this.Dest, "Academic Block-2")) {
            Amrita_Maps.this.p = 57;
        }
+       if (Objects.equals(Amrita_Maps.this.Source, "Food Science Lab")) {
+           Amrita_Maps.this.u = 57;
+       }
+       if (Objects.equals(Amrita_Maps.this.Dest, "Food Science Lab")) {
+           Amrita_Maps.this.p = 57;
+           Amrita_Maps.this.addr=20;
+       }
        if (Objects.equals(Amrita_Maps.this.Source, "AB-3")) {
            Amrita_Maps.this.u = 76;
        }
@@ -497,56 +514,56 @@ public int addr=1;
            Amrita_Maps.this.p = 67;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB( 1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB( First year)")) {
            Amrita_Maps.this.u = 14;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB( 1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB( First year)")) {
            Amrita_Maps.this.p = 14;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB Annexe( 1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB Annexe( First year)")) {
            Amrita_Maps.this.u = 18;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB Annexe( 1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB Annexe( First year)")) {
            Amrita_Maps.this.p = 18;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel( 4th year)li")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel( Fourth year)li")) {
            Amrita_Maps.this.u = 14;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( 4th year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( Fourth year)")) {
            Amrita_Maps.this. p = 14;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Girls Hostel( 1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Girls Hostel( First year)")) {
            Amrita_Maps.this.u = 27;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Girls Hostel( 1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Girls Hostel( First year)")) {
            Amrita_Maps.this.p = 27;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel(3rd year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel( Third year)")) {
            Amrita_Maps.this.u = 67;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( 3rd year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( Third year)")) {
            Amrita_Maps.this.p = 67;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel( 2nd year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel( Second year)")) {
            Amrita_Maps.this.u = 67;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( 2nd year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( Second year)")) {
            Amrita_Maps.this.p = 67;
            Amrita_Maps.this.addr = 0;
        }
@@ -705,6 +722,12 @@ public int addr=1;
            Amrita_Maps.this.addr = 3;
            Amrita_Maps.this.p = 8;
        }
+       if (Objects.equals(Amrita_Maps.this.Source, "MECH"))
+           Amrita_Maps.this.u = 8;
+       if (Objects.equals(Amrita_Maps.this.Dest, "MECH")) {
+           Amrita_Maps.this.addr = 3;
+           Amrita_Maps.this.p = 8;
+       }
        if (Objects.equals(Amrita_Maps.this.Source, "Mathematics Department"))
            Amrita_Maps.this.u = 8;
        if (Objects.equals(Amrita_Maps.this.Dest, "Mathematics Department")) {
@@ -730,6 +753,13 @@ public int addr=1;
            Amrita_Maps.this.addr = 9;
            Amrita_Maps.this.p = 57;
        }
+       if (Objects.equals(Amrita_Maps.this.Source, "CHEM")) {
+           Amrita_Maps.this.u = 57;
+       }
+       if (Objects.equals(Amrita_Maps.this.Dest, "CHEM")) {
+           Amrita_Maps.this.addr = 9;
+           Amrita_Maps.this.p = 57;
+       }
 
        if (Objects.equals(Amrita_Maps.this.Source, "Electronics And Communication Department")) {
            Amrita_Maps.this.u = 57;
@@ -738,10 +768,24 @@ public int addr=1;
            Amrita_Maps.this.addr = 10;
            Amrita_Maps.this.p = 57;
        }
+       if (Objects.equals(Amrita_Maps.this.Source, "ECE")) {
+           Amrita_Maps.this.u = 57;
+       }
+       if (Objects.equals(Amrita_Maps.this.Dest, "ECE")) {
+           Amrita_Maps.this.addr = 10;
+           Amrita_Maps.this.p = 57;
+       }
        if (Objects.equals(Amrita_Maps.this.Source, "Electrical And Electronics Department")) {
            Amrita_Maps.this.u = 57;
        }
        if (Objects.equals(Amrita_Maps.this.Dest, "Electrical And Electronics Department")) {
+           Amrita_Maps.this.addr = 11;
+           Amrita_Maps.this.p = 57;
+       }
+       if (Objects.equals(Amrita_Maps.this.Source, "EEE")) {
+           Amrita_Maps.this.u = 57;
+       }
+       if (Objects.equals(Amrita_Maps.this.Dest, "EEE")) {
            Amrita_Maps.this.addr = 11;
            Amrita_Maps.this.p = 57;
        }
@@ -757,6 +801,14 @@ public int addr=1;
            Amrita_Maps.this.u = 76;
        }
        if (Objects.equals(Amrita_Maps.this.Dest, "Computer Science Department")) {
+           Amrita_Maps.this.addr = 13;
+           Amrita_Maps.this.p = 76;
+       }
+       if (Objects.equals(Amrita_Maps.this.Source, "CSE")) {
+
+           Amrita_Maps.this.u = 76;
+       }
+       if (Objects.equals(Amrita_Maps.this.Dest, "CSE")) {
            Amrita_Maps.this.addr = 13;
            Amrita_Maps.this.p = 76;
        }
@@ -782,29 +834,46 @@ public int addr=1;
        if (Objects.equals(Amrita_Maps.this.Dest, "Cyber Security")) {
            Amrita_Maps.this.p = 57;
 
-           Amrita_Maps.this.addr = 0;
+           Amrita_Maps.this.addr = 18;
        }
        if (Objects.equals(Amrita_Maps.this.Source,"Center of Excellence in Networking(CEN)"))
            Amrita_Maps.this.u = 57;
        if (Objects.equals(Amrita_Maps.this.Dest, "Center of Excellence in Networking(CEN)")) {
            Amrita_Maps.this.p = 57;
 
-           Amrita_Maps.this.addr = 0;
+           Amrita_Maps.this.addr = 19;
        }
 
        if((u!=1000)&&(p!=1000)){
                 if (u == 73 || p== 73) {
 
                     if (cho == 1) {
-                        Toast.makeText(amrita_Maps.getApplicationContext(), "IT canteen cannot be accessed with cycle.", 1).show();
+                        linearLayout.removeAllViews();
+                        ShortestPath sp = new ShortestPath();
+                        Log.i("ucpc",Integer.toString(u));
+                        Log.i("pc",Integer.toString(p));
+                        Log.i("commute",Integer.toString(cho));
+                        float path[] = sp.main1(8,8,0);
+                        DrawView drawView = new DrawView(Amrita_Maps.this, path);
+                        linearLayout.addView(drawView);
+                        Toast.makeText(amrita_Maps.getApplicationContext(), "IT canteen cannot be accessed with vehicle.", 1).show();
                         Amrita_Maps.this.textView.getText();
                     }
                 }
 
                 if (u == 30 || p == 30) {
                     amrita_Maps = Amrita_Maps.this;
+
                     if (cho == 1) {
-                        Toast.makeText(amrita_Maps.getApplicationContext(), "Temple cannot be accessed with cycle.", 1).show();
+                        linearLayout.removeAllViews();
+                        ShortestPath sp = new ShortestPath();
+                        Log.i("ucpc",Integer.toString(u));
+                        Log.i("pc",Integer.toString(p));
+                        Log.i("commute",Integer.toString(cho));
+                        float path[] = sp.main1(8,8,0);
+                        DrawView drawView = new DrawView(Amrita_Maps.this, path);
+                        linearLayout.addView(drawView);
+                        Toast.makeText(amrita_Maps.getApplicationContext(), "Temple cannot be accessed with a vehicle.", 1).show();
                         Amrita_Maps.this.textView.getText();
                     }
                 }
@@ -906,6 +975,19 @@ int temp=u;
                 address = "Accounts office is in Academic Block-1(First Floor)";
                 message.setText(address);
                 break;
+            case(18):
+                address= "Cybersecurity department is behind AB2";
+                message.setText(address);
+                break;
+            case(19):
+                address="Center of Excellence(CEN) is behind AB2";
+                message.setText(address);
+                break;
+            case(20):
+                address="Food Science Lab is behind AB2";
+                message.setText(address);
+                break;
+
             default:
                 address1 = "default ";
 

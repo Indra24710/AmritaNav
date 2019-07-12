@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:icon="@drawable/information"
+        android:icon="@drawable/heart"
         android:title="Credits"
         app:showAsAction="always" />
 </menu>
