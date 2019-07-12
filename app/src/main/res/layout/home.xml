@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@android:color/white">
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/source"
@@ -16,7 +17,7 @@
         android:layout_marginTop="9dp"
         android:fontFamily="sans-serif-condensed"
         android:hint="Source"
-        android:maxLines="1"
+        android:maxLines="2"
         android:paddingLeft="10dp">
 
 
@@ -35,14 +36,14 @@
         android:fontFamily="sans-serif-condensed"
 
         android:hint="Destination"
-        android:maxLines="1"
+        android:maxLines="2"
         android:paddingLeft="10dp"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:queryHint="Destination" />
 
     <ImageButton
         android:id="@+id/clear"
-        android:layout_width="50dp"
+        android:layout_width="38dp"
         android:layout_height="wrap_content"
 
         android:layout_above="@+id/destination"
@@ -54,7 +55,7 @@
 
     <ImageButton
         android:id="@+id/go"
-        android:layout_width="50dp"
+        android:layout_width="38dp"
         android:layout_height="wrap_content"
 
 
@@ -63,20 +64,19 @@
         android:background="@android:color/transparent"
         android:padding="10dp"
         app:srcCompat="@drawable/go" />
-<!--
+    <!--
 
    -->
 
     <ImageButton
         android:id="@+id/walk"
         android:layout_width="40dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
 
 
         android:layout_below="@+id/destination"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="22dp"
-        android:layout_toLeftOf="@+id/cycle"
+        android:layout_marginEnd="39dp"
+        android:layout_toStartOf="@+id/cycletext"
         android:background="@android:color/transparent"
         android:paddingTop="10dp"
         app:srcCompat="@drawable/walk20" />
@@ -84,7 +84,7 @@
     <ImageButton
         android:id="@+id/cycle"
         android:layout_width="40dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
 
         android:layout_alignTop="@+id/walk"
         android:layout_centerHorizontal="true"
@@ -96,28 +96,29 @@
     <ImageButton
         android:id="@+id/bus"
         android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/cycle"
+        android:layout_height="40dp"
         android:layout_alignTop="@+id/cycle"
         android:layout_marginStart="33dp"
         android:layout_toEndOf="@+id/cycle"
+        android:layout_toRightOf="@+id/cycle"
         android:background="@android:color/transparent"
         android:paddingTop="10dp"
         app:srcCompat="@drawable/busclock18" />
+
     <LinearLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
-
+        android:layout_height="415dp"
         android:layout_above="@+id/message"
-        android:textAlignment="center"
-        android:orientation="horizontal">
+        android:layout_below="@+id/cycletext"
+        android:orientation="horizontal"
+        android:textAlignment="center">
 
         <ListView
             android:id="@+id/list"
-            android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:padding="10dp" />
     </LinearLayout>
 
     <TextView
@@ -130,16 +131,15 @@
         android:paddingBottom="10sp"
         android:paddingLeft="10sp"
         android:text=""
+        android:textColor="#000000"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/swap"
-        android:layout_width="50dp"
+        android:layout_width="38dp"
         android:layout_height="30dp"
         android:layout_below="@+id/clear"
-        android:layout_marginEnd="18dp"
         android:layout_toStartOf="@+id/clear"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/swap" />
@@ -168,9 +168,9 @@
         android:id="@+id/bustext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cycletext"
-        android:layout_alignEnd="@+id/swap"
-        android:layout_marginEnd="18dp"
+        android:layout_above="@+id/fragment"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/cycletext"
         android:fontFamily="sans-serif-condensed"
         android:text="Bus Timings"
         android:textColor="@android:color/holo_green_light" />

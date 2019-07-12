@@ -24,7 +24,7 @@ public class DrawView extends View {
     private float MIN_ZOOM = 1.0f;
     float[] arr;
 
-    Bitmap bitmap;
+    Bitmap bitmap,bitmap2;
     Paint col = new Paint();
     private boolean dragged;
     private int height;
@@ -70,6 +70,7 @@ public float a,b;
         this.paint.setStrokeWidth(5.0f);
         this.col.setColor(Color.rgb(0, 0, 120));
         this.bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mafff);
+        this.bitmap2=BitmapFactory.decodeResource(getResources(),R.drawable.map);
         this.width = 1080;
         random2 = this.width;
         this.height = (random2 * 1040) / 1080;
@@ -136,14 +137,8 @@ public float a,b;
         float f;
         Coordinates coordinates = new Coordinates();
         Canvas canvas2 = canvas;
-        float pointarr[]=this.arr;
-        int in=1;
-        int j=0;
 
-        while(pointarr[in]!=0.0f){
-            j++;
-            in++;
-        }
+
 
         super.onDraw(canvas);
         canvas.save();
@@ -174,7 +169,7 @@ public float a,b;
         String inte = distance.inte(this.arr[0]);
         setTextSizeForWidth(this.col, 350.0f, inte);
         canvas2.drawText(inte, 50.0f, 1000.0f, this.col);
-        canvas.drawPoint(a,b,this.paint);
+
         Log.i("add",Float.toString(a));
         Log.i("badd",Float.toString(b));
 int i=1;
@@ -186,21 +181,23 @@ int i=1;
                     float[][] fArr2 = coordinates.coord;
                     canvas.drawLine(fArr2[((int) fArr[i]) - 1][0], fArr2[((int) fArr[i]) - 1][1], fArr2[((int) fArr[i2]) - 1][0], fArr2[((int) fArr[i2]) - 1][1], this.paint);
                    // canvas2.drawCircle(pointarr[len-1],pointarr[len-1],5.0f, this.paint);
-                  //a=fArr2[((int) fArr[80]) - 1][0];
-                //  b=fArr2[((int) fArr[80]) - 1][1];
-                    Log.d("cood", Integer.toString(fArr.length));
+                  a=fArr2[((int) fArr[i2]) - 1][0]-15.0f;
+                  b=fArr2[((int) fArr[i2]) - 1][1]-20.0f;
 
-                    canvas.drawCircle( fArr2[j+1][0], fArr2[j+1][1], 10.0f,this.paint2);
+                  //  canvas.drawCircle( fArr2[j+1][0], fArr2[j+1][1], 10.0f,this.paint2);
                 }
+               // canvas.drawCircle(a,b,10.0f,this.paint2);
 
                 i = i2;
 
             } else {
               //  Log.i("elseadd",Float.toString(a));
               //  Log.i("elsebadd",Float.toString(b));
+             //   canvas.drawCircle(a,b,10.0f,this.paint2);
+                Log.d("cood", Float.toString(a));
 
+                canvas.drawBitmap(bitmap2,a,b,this.paint2);
                 canvas.restore();
-             //   canvas.drawCircle(a,b,15.0f,this.paint2);
 
                 return;
             }

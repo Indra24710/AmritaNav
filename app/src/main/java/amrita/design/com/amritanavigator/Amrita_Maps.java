@@ -47,13 +47,13 @@ InputMethodManager imm;
    // public Spinner btn1;
    int cho = 0;
     public String item[]={
-            "Main Gate","ATM 1/Post Office", "ATM 2",
-            "Academic Block-1", "Academic Block-2", "Academic Block-3", "Amriteshwari Hall/Sudhamani Hall",
+            "Main Gate","ATM 1", "ATM 2",
+            "Academic Block-1", "Academic Block-2", "Academic Block-3", "Amriteshwari Hall","Sudhamani Hall",
             "Main Canteen", "MBA Canteen", "IT Canteen",
             "Yagnavyalkya Bhavanam","Yagnavyalkya Bhavanam Annexe","Vyasamaharishi Bhavanam",
             "Nachikethas Bhavanam","Gargi Bhavanam","Mytreyi Bhavanam",
             "Gautama Bhavanam","Vashista Bhavanam","Agasthiya Bhavanam",
-            "Guest House","CIR Block","Amrita School of Business","Central Library",
+            "Guest House","CIR Block","Amrita School of Business","Library",
             "Swimming Pool","Main Ground","D-Ground","Gym","General Stores",
             "Temple","Saraswathi Statue","Mechanical Workshops","Car Parking","Dean Office","ICTS","Clinic",
             "Aerospace Department","Chemical and Material Science Department","Civil Department",
@@ -61,9 +61,9 @@ InputMethodManager imm;
             "Mechanical Department","Mathematics Department","Science Department","English Department","Communication Department",
             "Social Work Department","Provision Stores","Cloth Shop","Travel Desk","Mobile Recharge","Hair Dressing-Boys",
             "Beauty Parlour-Boys/Girls","Amrita Darshanam Centre","Student Welfare Department","AB-1","AB-2","AB-3",
-            "Hospital","Boys Hostel YB Annexe(1st year)","Girls Hostel(1st year)","Cyber Security","Center of Excellence in Networking(CEN)",
-            "Accounts","Admissions","Boys Hostel(2nd year)","Boys Hostel(3rd year)","Boys Hostel(4th year)","Post Office",
-            "Bank","Boys Hostel YB(1st year)","New Auditorium","Pandal"
+            "Hospital","Boys Hostel YB Annexe( 1st year)","Girls Hostel( 1st year)","Cyber Security","Center of Excellence in Networking(CEN)",
+            "Accounts","Admissions","Boys Hostel( 2nd year)","Boys Hostel( 3rd year)","Boys Hostel( 4th year)","Post Office",
+            "Bank","Boys Hostel YB( 1st year)","New Auditorium","Pandal"
 
     };
   //  String[] modee = new String[]{"Walk", "Cycle"};
@@ -74,6 +74,7 @@ InputMethodManager imm;
     int u = 1000;
 public int addr=1;
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+
     }
 
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
@@ -83,15 +84,13 @@ public int addr=1;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.opt, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        startActivity(new Intent(this, Final.class));
-        if (menuItem.getItemId() != R.menu.opt) {
-            return super.onOptionsItemSelected(menuItem);
-        }
+
+
         startActivity(new Intent(this, Final.class));
         return true;
     }
@@ -190,6 +189,7 @@ public int addr=1;
                 walktext.setVisibility(View.VISIBLE);
                 cycletext.setVisibility(View.INVISIBLE);
                 bustext.setVisibility(View.INVISIBLE);
+
                 setText(addr);
             }
         });
@@ -214,6 +214,7 @@ public int addr=1;
                 cycletext.setVisibility(View.INVISIBLE);
                 walktext.setVisibility(View.INVISIBLE);
 
+
                 linearLayout.removeAllViews();
 
 
@@ -221,7 +222,7 @@ public int addr=1;
                 if(textView.getText().toString().equals("Academic Block-1")){
 
 
-                    String times[]=new String []{"9.20 AM","10.10 AM","11.10 AM","12.00 Noon","1.00 PM","1.50PM","2.40PM","3.30PM"};
+                    String times[]=new String []{"9.20 AM","9:40 AM","10.10 AM","10:30 AM","11.10 AM","11:20 AM","12.00 Noon","12:20PM","1.00 PM","1:10 PM","1.50PM","2:10 PM","2.40PM","3:00 PM","3.30PM","3:50 PM"};
                     final ArrayList<String> time=new ArrayList<String>();
                     for(int i=0;i<8;i++){
                         time.add(times[i]);
@@ -232,7 +233,7 @@ public int addr=1;
                 }else if(textView.getText().toString().equals("Academic Block-3")){
 
 
-                    String times[]=new String[] {"9:40 AM","10.30 AM","11.20 AM","12.20 PM","1.10 PM","2.10 PM","3.00 PM","3.50 PM"};
+                    String times[]=new String[] {"9.20 AM","9:40 AM","10.10 AM","10:30 AM","11.10 AM","11:20 AM","12.00 Noon","12:20PM","1.00 PM","1:10 PM","1.50PM","2:10 PM","2.40PM","3:00 PM","3.30PM","3:50 PM"};
 
                     final ArrayList<String> time=new ArrayList<String>();
                     for(int i=0;i<8;i++){
@@ -411,10 +412,16 @@ public int addr=1;
        if (Objects.equals(Amrita_Maps.this.Dest, "Academic Block-3")) {
            Amrita_Maps.this.p = 76;
        }
-       if (Objects.equals(Amrita_Maps.this.Source, "Amriteshwari Hall/Sudhamani Hall")) {
+       if (Objects.equals(Amrita_Maps.this.Source, "Amriteshwari Hall")) {
            Amrita_Maps.this.u = 9;
        }
-       if (Objects.equals(Amrita_Maps.this.Dest, "Amriteshwari Hall/Sudhamani Hall")) {
+       if (Objects.equals(Amrita_Maps.this.Dest, "Amriteshwari Hall")) {
+           Amrita_Maps.this.p = 9;
+       }
+       if (Objects.equals(Amrita_Maps.this.Source, "Sudhamani Hall")) {
+           Amrita_Maps.this.u = 9;
+       }
+       if (Objects.equals(Amrita_Maps.this.Dest, "Sudhamani Hall")) {
            Amrita_Maps.this.p = 9;
        }
        if (Objects.equals(Amrita_Maps.this.Source, "Main Canteen")) {
@@ -490,38 +497,38 @@ public int addr=1;
            Amrita_Maps.this.p = 67;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB(1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB( 1st year)")) {
            Amrita_Maps.this.u = 14;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB(1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB( 1st year)")) {
            Amrita_Maps.this.p = 14;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB Annexe(1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel YB Annexe( 1st year)")) {
            Amrita_Maps.this.u = 18;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB Annexe(1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel YB Annexe( 1st year)")) {
            Amrita_Maps.this.p = 18;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel(4th year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel( 4th year)li")) {
            Amrita_Maps.this.u = 14;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel(4th year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( 4th year)")) {
            Amrita_Maps.this. p = 14;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Girls Hostel(1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Girls Hostel( 1st year)")) {
            Amrita_Maps.this.u = 27;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Girls Hostel(1st year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Girls Hostel( 1st year)")) {
            Amrita_Maps.this.p = 27;
            Amrita_Maps.this.addr = 0;
        }
@@ -530,16 +537,16 @@ public int addr=1;
            Amrita_Maps.this.u = 67;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel(3rd year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( 3rd year)")) {
            Amrita_Maps.this.p = 67;
            Amrita_Maps.this.addr = 0;
        }
 
-       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel(2nd year)")) {
+       if (Objects.equals( Amrita_Maps.this.Source, "Boys Hostel( 2nd year)")) {
            Amrita_Maps.this.u = 67;
 
        }
-       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel(2nd year)")) {
+       if (Objects.equals( Amrita_Maps.this.Dest, "Boys Hostel( 2nd year)")) {
            Amrita_Maps.this.p = 67;
            Amrita_Maps.this.addr = 0;
        }
@@ -801,7 +808,9 @@ public int addr=1;
                         Amrita_Maps.this.textView.getText();
                     }
                 }
-
+int temp=u;
+                u=p;
+                p=temp;
                 linearLayout.removeAllViews();
                ShortestPath sp = new ShortestPath();
            Log.i("ucpc",Integer.toString(u));

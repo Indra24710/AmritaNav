@@ -11,8 +11,8 @@ public class Final extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_final);
-        tv = findViewById(R.id.textView2);
-        tv.setMovementMethod(new ScrollingMovementMethod());
+        setContentView(R.layout.credits);
+     //  tv = findViewById(R.id.textView2);
+       // tv.setMovementMethod(new ScrollingMovementMethod());
     }
 }

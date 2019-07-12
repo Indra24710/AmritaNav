@@ -4,6 +4,7 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
+        android:icon="@drawable/information"
         android:title="Credits"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>
