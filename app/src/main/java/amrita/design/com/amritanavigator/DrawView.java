@@ -24,7 +24,7 @@ public class DrawView extends View {
     private float MIN_ZOOM = 1.0f;
     float[] arr;
 
-    Bitmap bitmap,bitmap2;
+    Bitmap bitmap,bit2;
     Paint col = new Paint();
     private boolean dragged;
     private int height;
@@ -70,7 +70,7 @@ public float a,b;
         this.paint.setStrokeWidth(5.0f);
         this.col.setColor(Color.rgb(0, 0, 120));
         this.bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mafff);
-        this.bitmap2=BitmapFactory.decodeResource(getResources(),R.drawable.map);
+        this.bit2=BitmapFactory.decodeResource(getResources(),R.drawable.map);
         this.width = 1080;
         random2 = this.width;
         this.height = (random2 * 1040) / 1080;
@@ -194,7 +194,7 @@ int i=1;
               //  Log.i("elsebadd",Float.toString(b));
              //   canvas.drawCircle(a,b,10.0f,this.paint2);
                 Log.d("cood", Float.toString(a));
-                canvas.drawBitmap(bitmap2,a,b,this.paint2);
+                canvas.drawBitmap(bit2,a,b,this.paint2);
 
                 canvas.restore();
 
